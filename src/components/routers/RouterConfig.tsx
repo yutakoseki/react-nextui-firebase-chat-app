@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SampleHome } from "../SampleHome";
-import { SamplePage1 } from "../SamplePage1";
-import { SamplePage2 } from "../SamplePage2";
 import { NextUIProvider } from "@nextui-org/react";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Welcome from "../pages/Welcome";
 
 
 export const RouterConfig:React.VFC =() => {
@@ -12,9 +12,10 @@ export const RouterConfig:React.VFC =() => {
     <NextUIProvider>
         <BrowserRouter>
         <Routes>
-            <Route index element={<SampleHome />} />
-            <Route path="page1" element={<SamplePage1 />} />
-            <Route path="page2" element={<SamplePage2 />} />
+            <Route path="*" element={<div>404　ページが見つかりません。</div>} />
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="welcome" element={<Welcome />} />
         </Routes>
         </BrowserRouter>
     </NextUIProvider>
