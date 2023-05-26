@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SampleHome } from "./components/SampleHome";
-import { SamplePage1 } from "./components/SamplePage1";
-import { SamplePage2 } from "./components/SamplePage2";
+import { SampleHome } from "../SampleHome";
+import { SamplePage1 } from "../SamplePage1";
+import { SamplePage2 } from "../SamplePage2";
 import { NextUIProvider } from "@nextui-org/react";
 
 

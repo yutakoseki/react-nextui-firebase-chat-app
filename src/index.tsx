@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { RouterConfig } from "./RouterConfig";
+import { RouterConfig } from "./components/routers/RouterConfig";
 
 ReactDOM.render(
   <React.StrictMode>
