@@ -1,22 +1,25 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NextUIProvider } from "@nextui-org/react";
+import { BrowserRouter, Routes, Route, LoaderFunctionArgs } from "react-router-dom";
+import { NextUIProvider, createTheme } from "@nextui-org/react";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Welcome from "../pages/Welcome";
+import User from "../pages/User";
 
+const darkTheme = createTheme({type: "dark"});
 
 export const RouterConfig:React.VFC =() => {
   return (
     <>
-    <NextUIProvider>
+    <NextUIProvider theme={darkTheme}>
         <BrowserRouter>
-        <Routes>
-            <Route path="*" element={<div>404　ページが見つかりません。</div>} />
-            <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="welcome" element={<Welcome />} />
-        </Routes>
+          <Routes>
+              <Route path="*" element={<div>404　ページが見つかりません。</div>} />
+              <Route index element={<Home />} />
+              <Route path="welcome" element={<Welcome />} />
+              <Route path="login" element={<Login />} />
+              <Route path="user" element={<User />} />
+          </Routes>
         </BrowserRouter>
     </NextUIProvider>
     </>

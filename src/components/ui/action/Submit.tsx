@@ -1,8 +1,16 @@
+import { Button } from '@nextui-org/react'
 import React from 'react'
 
-function Submit() {
+interface StringProps {
+  buttonValue: string;
+}
+
+const Submit: React.FC<StringProps> = (props) => {
+  const buttonValue = props.buttonValue;
   return (
-    <div>Submit</div>
+    <Button shadow color="gradient" css={{ width: '70%' }}>
+      {buttonValue}
+    </Button>
   )
 }
 

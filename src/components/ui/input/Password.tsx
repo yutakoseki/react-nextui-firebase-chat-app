@@ -5,10 +5,10 @@ interface StringProps {
   placeholder: string;
 }
 
-const String: React.FC<StringProps> = (props) => {
+const Password: React.FC<StringProps> = (props) => {
   const placeholder = props.placeholder;
   return (
-    <Input
+    <Input.Password
           bordered
           labelPlaceholder={placeholder}
           color="secondary"
@@ -17,4 +17,4 @@ const String: React.FC<StringProps> = (props) => {
   )
 }
 
-export default String
+export default Password

@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../layouts/Header'
 
 function User() {
   return (
-    <div>User</div>
+    <>
+      <Header />
+      <div>User</div>
+    </>
   )
 }
 
