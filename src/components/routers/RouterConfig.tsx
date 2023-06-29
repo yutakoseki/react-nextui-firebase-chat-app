@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
-import Home from "../pages/Home";
+import Home from "../Home/Home";
 import Login from "../login/Login";
 import Welcome from "../pages/Welcome";
 import User from "../pages/User";

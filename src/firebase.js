@@ -1,3 +1,6 @@
+// アカウント
+// developsolt@gmail.com
+// chat-app
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";

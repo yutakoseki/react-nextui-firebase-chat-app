@@ -66,4 +66,10 @@ firebase deploy
 ? Enter authorization code: 
 4/0AbUR2VMciaK3kOQZsQHTNMjkuOW84_EfIo1sT-D9-PH4BoSf9X45_HltBXh2fleWQIMlpA
 ```
-
+## Redux
+```sh
+npm install @reduxjs/toolkit
+```
+```sh
+npm install react-redux
+```
