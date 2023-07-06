@@ -1,9 +1,8 @@
-import React from 'react'
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
-import { Layout } from "./Layout";
-import { AcmeLogo } from "./AcmeLogo";
+import { Layout } from "./Layout.js";
+import { AcmeLogo } from "./AcmeLogo.js";
 
-function Header() {
+export default function App() {
   const collapseItems = [
     "Profile",
     "Dashboard",
@@ -123,5 +122,3 @@ function Header() {
     </Layout>
   );
 }
-
-export default Header
