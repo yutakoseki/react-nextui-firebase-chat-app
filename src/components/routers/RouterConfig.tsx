@@ -4,6 +4,7 @@ import { NextUIProvider, createTheme } from "@nextui-org/react";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Counter from "../Counter/Counter";
+import User from "../User/UserUI";
 
 const darkTheme = createTheme({type: "dark"});
 
@@ -15,6 +16,7 @@ export const RouterConfig:React.VFC =() => {
           <Routes>
               <Route path="*" element={<div>404　ページが見つかりません。</div>} />
               <Route index element={<Home />} />
+              <Route path="user" element={<User />} />
               <Route path="login" element={<Login />} />
               <Route path="counter" element={<Counter />} />
           </Routes>
