@@ -6,6 +6,7 @@ interface UserState {
     username: string;
     password: string;
     photoURL: string;
+    language: string;
 }
 
 // 初期値
@@ -14,6 +15,7 @@ const initialState: UserState = {
     username: "",
     password: "",
     photoURL: "",
+    language: "ja",
 };
 
 // ユーザーのログイン状況を管理するスライス
@@ -34,9 +36,12 @@ const userSlice = createSlice({
         changePhotoURL: (state, action: PayloadAction<string>) => {
             state.photoURL = action.payload;
         },
+        changeLanguage: (state, action: PayloadAction<string>) => {
+          state.language = action.payload;
+      },
     },
 });
 
 // 他のファイルで使用できるように関数を外出し
-export const { changeUID, changeUsername, changePassword, changePhotoURL } = userSlice.actions;
+export const { changeUID, changeUsername, changePassword, changePhotoURL, changeLanguage } = userSlice.actions;
 export default userSlice;

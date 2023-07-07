@@ -1,8 +1,10 @@
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
+import { useTranslation } from "react-i18next";
 
 export default function App() {
+    const { t } = useTranslation();
   const collapseItems = [
     "Profile",
     "Dashboard",
@@ -79,7 +81,7 @@ export default function App() {
                 </Text>
               </Dropdown.Item>
               <Dropdown.Item key="settings" withDivider>
-                My Settings
+                {t("header.My_Settings")}
               </Dropdown.Item>
               <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
               <Dropdown.Item key="analytics" withDivider>
