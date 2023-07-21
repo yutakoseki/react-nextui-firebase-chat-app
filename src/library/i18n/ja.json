@@ -1,5 +1,12 @@
 {
     "header": {
        "My_Settings": "ユーザー設定"
+     },
+     "user":{
+      "edit Mypage":"マイページを編集",
+      "message":"メッセージ"
+     },
+     "profile":{
+      "Save Profile":"編集を保存"
      }
    }

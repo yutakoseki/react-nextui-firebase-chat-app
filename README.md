@@ -73,3 +73,15 @@ npm install @reduxjs/toolkit
 ```sh
 npm install react-redux
 ```
+
+## Redux toolkit
+
+## Redux localstorage
+* storeで管理している情報がリロード時に初期化されてしまうので、ローカルストレージへ保存するためのライブラリ
+* https://wonwon-eater.com/redux-toolkit-localstorage-simple/
+```sh
+npm install --save redux-localstorage-simple
+```
+
+## 多言語対応
+* react-i18next

@@ -49,7 +49,7 @@ const Login = () => {
                 dispatch(changeUsername(loginUser[0].username));
                 dispatch(changePassword(loginUser[0].password));
                 setUser(loginUser);
-                navigate("/");
+                navigate("/user");
                 console.log("Document data:", doc.data());
             });
         }

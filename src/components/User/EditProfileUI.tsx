@@ -3,33 +3,30 @@ import Header from "../Header/Header";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { Card, Grid } from "@nextui-org/react";
-import user from "./user.module.scss";
-import UserTopUI from "./UserInfo/UserTopUI";
+import scss from "./edit.module.scss";
 import UserMiddleUI from "./UserInfo/UserMiddleUI";
 import UserBottomUI from "./UserInfo/UserBottomUI";
 import DashboardTopUI from "./Dashboard/DashboardTopUI";
 import DashboardMiddleUI from "./Dashboard/DashboardMiddleUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
+import EditInfoTop from "./EditInfo/EditInfoTopUI";
 
-const UserUI = () => {
-    const username = useSelector((state: RootState) => state.user.username);
-    const password = useSelector((state: RootState) => state.user.password);
-
+const Editscss = () => {
     return (
         <>
             <Header />
-            <Grid.Container gap={1} className={user.container}>
+            <Grid.Container gap={1} className={scss.container}>
                 <Grid xs={12} md={3}>
-                    <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
+                    <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                            <Grid.Container gap={1} className={user.userInfoContainer}>
-                                <Grid xs={12} className={user.userInfoGridTop}>
-                                    <UserTopUI />
+                            <Grid.Container gap={1} className={scss.userInfoContainer}>
+                                <Grid xs={12} className={scss.userInfoGridTop}>
+                                    <EditInfoTop />
                                 </Grid>
-                                <Grid xs={12} className={user.userInfoGridMiddle}>
+                                <Grid xs={12} className={scss.userInfoGridMiddle}>
                                     <UserMiddleUI />
                                 </Grid>
-                                <Grid xs={12} className={user.userInfoGridBottom}>
+                                <Grid xs={12} className={scss.userInfoGridBottom}>
                                     <UserBottomUI />
                                 </Grid>
                             </Grid.Container>
@@ -38,16 +35,16 @@ const UserUI = () => {
                 </Grid>
                 {/* スマホ版では非表示 */}
                 <Grid xs={0} md={9}>
-                    <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
+                    <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                        <Grid.Container gap={1} className={user.dashboard}>
-                                <Grid xs={12} className={user.dashboardGridTop}>
+                            <Grid.Container gap={1} className={scss.dashboard}>
+                                <Grid xs={12} className={scss.dashboardGridTop}>
                                     <DashboardTopUI />
                                 </Grid>
-                                <Grid xs={12} className={user.dashboardGridMiddle}>
+                                <Grid xs={12} className={scss.dashboardGridMiddle}>
                                     <DashboardMiddleUI />
                                 </Grid>
-                                <Grid xs={12} className={user.dashboardGridBottom}>
+                                <Grid xs={12} className={scss.dashboardGridBottom}>
                                     <DashboardBottomUI />
                                 </Grid>
                             </Grid.Container>
@@ -59,4 +56,4 @@ const UserUI = () => {
     );
 };
 
-export default UserUI;
+export default Editscss;
