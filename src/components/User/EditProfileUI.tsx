@@ -11,7 +11,15 @@ import DashboardMiddleUI from "./Dashboard/DashboardMiddleUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
 import EditInfoTop from "./EditInfo/EditInfoTopUI";
 
-const Editscss = () => {
+interface EditProfileProps {
+    // userName: string;
+    // password: string;
+    // onUserNameChange: (value: string) => void;
+    // onPasswordChange: (value: string) => void;
+    onClickButton: (value: boolean) => void;
+}
+
+const EditProfileUI = ({ onClickButton }: EditProfileProps) => {
     return (
         <>
             <Header />
@@ -21,7 +29,7 @@ const Editscss = () => {
                         <Card.Body>
                             <Grid.Container gap={1} className={scss.userInfoContainer}>
                                 <Grid xs={12} className={scss.userInfoGridTop}>
-                                    <EditInfoTop />
+                                    <EditInfoTop onClickButton={onClickButton} />
                                 </Grid>
                                 <Grid xs={12} className={scss.userInfoGridMiddle}>
                                     <UserMiddleUI />
@@ -56,4 +64,4 @@ const Editscss = () => {
     );
 };
 
-export default Editscss;
+export default EditProfileUI;
