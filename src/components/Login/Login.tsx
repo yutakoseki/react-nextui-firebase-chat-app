@@ -4,9 +4,10 @@ import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeUsername, changePassword } from "../../features/userSlice";
+import { changeUsername, changePassword, changeUserid } from "../../features/userSlice";
 
 interface User {
+    userid: string;
     username: string;
     password: string;
 }
@@ -43,9 +44,11 @@ const Login = () => {
             // 取得したものを表示
             querySnapshot.forEach((doc) => {
                 loginUser.push({
+                    userid: doc.data().userid,
                     username: doc.data().username,
                     password: doc.data().password,
                 })
+                dispatch(changeUserid(loginUser[0].userid));
                 dispatch(changeUsername(loginUser[0].username));
                 dispatch(changePassword(loginUser[0].password));
                 setUser(loginUser);

@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../Header/Header";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
 import { Card, Grid } from "@nextui-org/react";
 import scss from "./edit.module.scss";
 import UserMiddleUI from "./UserInfo/UserMiddleUI";
@@ -14,12 +12,12 @@ import EditInfoTop from "./EditInfo/EditInfoTopUI";
 interface EditProfileProps {
     // userName: string;
     // password: string;
-    // onUserNameChange: (value: string) => void;
+    onUserNameChange: (value: string) => void;
     // onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const EditProfileUI = ({ onClickButton }: EditProfileProps) => {
+const EditProfileUI = ({onUserNameChange, onClickButton }: EditProfileProps) => {
     return (
         <>
             <Header />
@@ -29,7 +27,7 @@ const EditProfileUI = ({ onClickButton }: EditProfileProps) => {
                         <Card.Body>
                             <Grid.Container gap={1} className={scss.userInfoContainer}>
                                 <Grid xs={12} className={scss.userInfoGridTop}>
-                                    <EditInfoTop onClickButton={onClickButton} />
+                                    <EditInfoTop onClickButton={onClickButton} onUserNameChange={onUserNameChange} />
                                 </Grid>
                                 <Grid xs={12} className={scss.userInfoGridMiddle}>
                                     <UserMiddleUI />

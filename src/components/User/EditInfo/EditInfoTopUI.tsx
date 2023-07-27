@@ -10,16 +10,23 @@ import { useNavigate } from "react-router-dom";
 interface EditProfileProps {
     // userName: string;
     // password: string;
-    // onUserNameChange: (value: string) => void;
+    onUserNameChange: (value: string) => void;
     // onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const EditInfoTop = ({onClickButton}:EditProfileProps) => {
+const EditInfoTop = ({onUserNameChange, onClickButton}:EditProfileProps) => {
     const username = useSelector((state: RootState) => state.user.username);
     const { t } = useTranslation();
     const navigate = useNavigate();
 
+    // ユーザー名
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+        const value = event.target.value;
+        onUserNameChange(value);
+    }
+
+    // データをEditProfileへ
     const handleClickSaveEdit = (): void => {
         onClickButton(true);
         navigate("/user");
@@ -38,6 +45,7 @@ const EditInfoTop = ({onClickButton}:EditProfileProps) => {
                         width="80%"
                         style={{ textAlign: "center", fontSize: "18px" }}
                         css={{marginTop: "50px", marginBottom: "20px"}}
+                        onChange={handleNameChange}
                     />
                     <Button css={{ textAlign: "center", marginTop: "20px" }} color="primary" auto onClick={handleClickSaveEdit}>
                         {t("profile.Save Profile")}
