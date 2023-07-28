@@ -10,15 +10,23 @@ import { useNavigate } from "react-router-dom";
 interface EditProfileProps {
     // userName: string;
     // password: string;
+    onUseridChange: (value: string) => void;
     onUserNameChange: (value: string) => void;
     // onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const EditInfoTop = ({onUserNameChange, onClickButton}:EditProfileProps) => {
+const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfileProps) => {
+    const userid = useSelector((state: RootState) => state.user.userid);
     const username = useSelector((state: RootState) => state.user.username);
     const { t } = useTranslation();
     const navigate = useNavigate();
+
+    // ユーザーID
+    const handleUseridChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+        const value = event.target.value;
+        onUseridChange(value);
+    }
 
     // ユーザー名
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -37,6 +45,16 @@ const EditInfoTop = ({onUserNameChange, onClickButton}:EditProfileProps) => {
             <Card className={scss.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
                 <Card.Body style={{alignItems: "center"}}>
                     <Image showSkeleton width={200} height={180} maxDelay={10000} src="https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true" alt="Default Image" objectFit="cover" style={{ borderRadius: "50%", overflow: "hidden" }} />
+                    <Input className={scss.input}
+                        clearable
+                        underlined
+                        labelPlaceholder={t("profile.Userid")}
+                        initialValue={userid}
+                        width="80%"
+                        style={{ textAlign: "center", fontSize: "18px" }}
+                        css={{marginTop: "50px", marginBottom: "20px"}}
+                        onChange={handleUseridChange}
+                    />
                     <Input className={scss.input}
                         clearable
                         underlined

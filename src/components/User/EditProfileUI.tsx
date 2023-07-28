@@ -12,12 +12,13 @@ import EditInfoTop from "./EditInfo/EditInfoTopUI";
 interface EditProfileProps {
     // userName: string;
     // password: string;
+    onUseridChange: (value: string) => void;
     onUserNameChange: (value: string) => void;
     // onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const EditProfileUI = ({onUserNameChange, onClickButton }: EditProfileProps) => {
+const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditProfileProps) => {
     return (
         <>
             <Header />
@@ -27,7 +28,7 @@ const EditProfileUI = ({onUserNameChange, onClickButton }: EditProfileProps) => 
                         <Card.Body>
                             <Grid.Container gap={1} className={scss.userInfoContainer}>
                                 <Grid xs={12} className={scss.userInfoGridTop}>
-                                    <EditInfoTop onClickButton={onClickButton} onUserNameChange={onUserNameChange} />
+                                    <EditInfoTop onClickButton={onClickButton} onUseridChange={onUseridChange} onUserNameChange={onUserNameChange} />
                                 </Grid>
                                 <Grid xs={12} className={scss.userInfoGridMiddle}>
                                     <UserMiddleUI />

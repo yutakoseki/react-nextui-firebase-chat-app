@@ -14,15 +14,15 @@ interface User {
 
 const Login = () => {
     const [user, setUser] = useState<User[]>([]);
-    const [username, setUsername] = useState("");
+    const [userid, setUserid] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
     console.log(user);
 
     // ユーザー名を取得
-    const onUserNameChange = (value: string) => {
-        setUsername(value);
+    const onUserIdChange = (value: string) => {
+        setUserid(value);
     };
 
     // パスワードを取得
@@ -36,7 +36,7 @@ const Login = () => {
             // コレクションを指定
             const usersRef = collection(db, "users");
             // フィールドの条件を指定
-            const q = query(usersRef, where("username", "==", username), where("password", "==", password));
+            const q = query(usersRef, where("userid", "==", userid), where("password", "==", password));
             // 取得したものをスナップショットに格納
             const querySnapshot = await getDocs(q);
             // 展開したdocデータを格納する配列
@@ -61,7 +61,7 @@ const Login = () => {
     return (
         <>
             {/* ログインUI */}
-            <LoginUI userName={username} onUserNameChange={onUserNameChange} password={password} onPasswordChange={onPasswordChange} onClickButton={onClickButton} />
+            <LoginUI userid={userid} onUserIdChange={onUserIdChange} password={password} onPasswordChange={onPasswordChange} onClickButton={onClickButton} />
         </>
     );
 };
