@@ -6,7 +6,7 @@ import Login from "../Login/Login";
 import Counter from "../Counter/Counter";
 import User from "../User/UserUI";
 import MessageList from "../Message/MessageList";
-import EditProfile from "../User/EditProfileUI";
+import EditProfile from "../User/EditProfile";
 
 const theme = createTheme({
     type: "dark", // it could be "light" or "dark"
