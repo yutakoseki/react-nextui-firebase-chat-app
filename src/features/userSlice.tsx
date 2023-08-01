@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // 初期値型
 interface UserState {
     uid: string;
+    userid: string;
     username: string;
     password: string;
     photoURL: string;
@@ -12,6 +13,7 @@ interface UserState {
 // 初期値
 const initialState: UserState = {
     uid: "",
+    userid: "",
     username: "",
     password: "",
     photoURL: "",
@@ -27,6 +29,9 @@ const userSlice = createSlice({
         changeUID: (state, action: PayloadAction<string>) => {
             state.uid = action.payload;
         },
+        changeUserid: (state, action: PayloadAction<string>) => {
+            state.userid = action.payload;
+        },
         changeUsername: (state, action: PayloadAction<string>) => {
             state.username = action.payload;
         },
@@ -37,11 +42,11 @@ const userSlice = createSlice({
             state.photoURL = action.payload;
         },
         changeLanguage: (state, action: PayloadAction<string>) => {
-          state.language = action.payload;
+            state.language = action.payload;
       },
     },
 });
 
 // 他のファイルで使用できるように関数を外出し
-export const { changeUID, changeUsername, changePassword, changePhotoURL, changeLanguage } = userSlice.actions;
+export const { changeUID, changeUserid, changeUsername, changePassword, changePhotoURL, changeLanguage } = userSlice.actions;
 export default userSlice;

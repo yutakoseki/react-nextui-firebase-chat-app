@@ -2,17 +2,17 @@ import React from "react";
 import { Button, Card, Grid, Input, Row, Text } from "@nextui-org/react";
 
 interface LoginProps {
-    userName: string;
+    userid: string;
     password: string;
-    onUserNameChange: (value: string) => void;
+    onUserIdChange: (value: string) => void;
     onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const LoginUI = ({ onUserNameChange, onPasswordChange, onClickButton }: LoginProps) => {
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton }: LoginProps) => {
+    const handleIdChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const value = event.target.value;
-        onUserNameChange(value);
+        onUserIdChange(value);
     };
 
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -51,7 +51,7 @@ const LoginUI = ({ onUserNameChange, onPasswordChange, onClickButton }: LoginPro
                             </Text>
                         </Row>
                         <Row justify="center" align="center" css={{ height: "150px" }}>
-                            <Input bordered labelPlaceholder="ユーザー名" color="secondary" width="70%" onChange={handleNameChange} />
+                            <Input bordered labelPlaceholder="ユーザーID" color="secondary" width="70%" onChange={handleIdChange} />
                         </Row>
                         <Row justify="center" align="center" css={{ height: "50px" }}>
                             <Input.Password bordered labelPlaceholder="パスワード" color="secondary" width="70%" onChange={handlePasswordChange} />
