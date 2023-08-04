@@ -7,7 +7,7 @@ const UserBottomUI = () => {
     <>        <>
     <Card className={user.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
         <Card.Body>
-            <Text>UserInfo Middle</Text>
+            <Text>UserInfo Bottom</Text>
         </Card.Body>
     </Card>
 </></>

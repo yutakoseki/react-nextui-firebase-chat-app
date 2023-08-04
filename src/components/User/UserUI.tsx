@@ -26,9 +26,6 @@ const UserUI = () => {
                                 <Grid xs={12} className={user.userInfoGridTop}>
                                     <UserTopUI />
                                 </Grid>
-                                <Grid xs={12} className={user.userInfoGridMiddle}>
-                                    <UserMiddleUI />
-                                </Grid>
                                 <Grid xs={12} className={user.userInfoGridBottom}>
                                     <UserBottomUI />
                                 </Grid>
@@ -43,9 +40,6 @@ const UserUI = () => {
                         <Grid.Container gap={1} className={user.dashboard}>
                                 <Grid xs={12} className={user.dashboardGridTop}>
                                     <DashboardTopUI />
-                                </Grid>
-                                <Grid xs={12} className={user.dashboardGridMiddle}>
-                                    <DashboardMiddleUI />
                                 </Grid>
                                 <Grid xs={12} className={user.dashboardGridBottom}>
                                     <DashboardBottomUI />

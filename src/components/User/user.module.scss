@@ -23,11 +23,8 @@
   .userInfoGridTop {
     height: 50%;
   }
-  .userInfoGridMiddle {
-    height: 15%;
-  }
   .userInfoGridBottom {
-    height: 35%;
+    height: 50%;
   }
 }
 
@@ -35,19 +32,13 @@
 .dashboard {
     height: 100%;
     .dashboardGridTop {
-        height: 15%;
+        height: 35%;
         .dashboardTop {
             height: 100%;
         }
     }
-    .dashboardGridMiddle {
-        height: 25%;
-        .dashboardMiddle {
-            height: 100%;
-        }
-    }
     .dashboardGridBottom {
-        height: 60%;
+        height: 65%;
         .dashboardBottom {
             height: 100%;
         }
