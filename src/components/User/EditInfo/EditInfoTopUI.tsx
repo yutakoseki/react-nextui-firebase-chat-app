@@ -19,6 +19,7 @@ interface EditProfileProps {
 const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfileProps) => {
     const userid = useSelector((state: RootState) => state.user.userid);
     const username = useSelector((state: RootState) => state.user.username);
+    const photoURL = useSelector((state: RootState) => state.user.photoURL);
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -44,7 +45,8 @@ const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfi
         <>
             <Card className={scss.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
                 <Card.Body style={{alignItems: "center"}}>
-                    <Image showSkeleton width={200} height={180} maxDelay={10000} src="https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true" alt="Default Image" objectFit="cover" style={{ borderRadius: "50%", overflow: "hidden" }} />
+                    <Image showSkeleton width={150} height={150} maxDelay={10000} src={photoURL}
+                    alt="Default Image" objectFit="cover" style={{ borderRadius: "50%", overflow: "hidden" }} />
                     <Input className={scss.input}
                         clearable
                         underlined
