@@ -1,14 +1,25 @@
 {
+    "global": {
+        "OK": "OK",
+        "Cancel": "キャンセル"
+    },
     "header": {
-       "My_Settings": "ユーザー設定"
-     },
-     "user":{
-      "edit Mypage":"マイページを編集",
-      "message":"メッセージ"
-     },
-     "profile":{
-      "Save Profile":"編集を保存",
-      "Name":"名前",
-      "Userid":"ユーザーID"
-     }
-   }
+        "My Settings": "ユーザー設定",
+        "Log Out": "ログアウト"
+    },
+    "user": {
+        "userid": "ユーザーID",
+        "username": "ユーザー名",
+        "password": "パスワード",
+        "edit Mypage": "マイページを編集",
+        "message": "メッセージ"
+    },
+    "profile": {
+        "Save Profile": "編集を保存",
+        "Name": "名前",
+        "Userid": "ユーザーID"
+    },
+    "error": {
+        "LoginBrank": "ユーザー名とパスワードを入力してください"
+    }
+}

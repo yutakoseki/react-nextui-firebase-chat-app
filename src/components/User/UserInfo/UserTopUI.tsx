@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const UserTopUI = () => {
-    const username = useSelector((state: RootState) => state.user.username);
+    const user = useSelector((state: RootState) => state.user);
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -29,12 +29,12 @@ const UserTopUI = () => {
                         width={200}
                         height={180}
                         maxDelay={10000}
-                        src="https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
+                        src={user.photoURL}
                         alt="Default Image"
                         objectFit="cover"
                         style={{ borderRadius: "50%", overflow: "hidden" }}
                     />
-                    <Text h3 css={{textAlign: "center", marginTop: "10px"}}>{username}</Text>
+                    <Text h3 css={{textAlign: "center", marginTop: "10px"}}>{user.username}</Text>
                     <Button css={{textAlign: "center", marginTop: "20px"}} color="primary" auto onClick={handleClickToEditProfile}>{t("user.edit Mypage")}</Button>
                     <Button css={{textAlign: "center", marginTop: "20px"}} color="primary" auto onClick={handleClickToMessage}>{t("user.message")}</Button>
                 </Card.Body>

@@ -7,6 +7,7 @@ import Counter from "../Counter/Counter";
 import User from "../User/UserUI";
 import MessageList from "../Message/MessageList";
 import EditProfile from "../User/EditProfile";
+import Signin from "../Signin/Signin";
 
 const theme = createTheme({
     type: "dark", // it could be "light" or "dark"
@@ -58,6 +59,7 @@ export const RouterConfig: React.VFC = () => {
                         <Route index element={<Home />} />
                         <Route path="user" element={<User />} />
                         <Route path="login" element={<Login />} />
+                        <Route path="signin" element={<Signin />} />
                         <Route path="messagelist" element={<MessageList />} />
                         <Route path="profile/edit" element={<EditProfile />} />
                         <Route path="counter" element={<Counter />} />

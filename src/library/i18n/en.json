@@ -1,5 +1,8 @@
 {
     "header": {
-       "My_Settings": "My Settings"
-     }
+       "My Settings": "My Settings"
+     },
+    "error": {
+      "LoginBrank": "Please enter your username and password."
    }
+}
