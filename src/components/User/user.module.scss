@@ -1,6 +1,6 @@
 // user.scss
 .container {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px);
     overflow: "hidden";
 }
 
@@ -19,28 +19,34 @@
 
 // ユーザー情報ブロック
 .userInfoContainer {
-  height: 100%;
-  .userInfoGridTop {
-    height: 50%;
-  }
-  .userInfoGridBottom {
-    height: 50%;
-  }
+    height: calc(100vh - 70px);
+    .userInfoContainer {
+        height: 100%;
+        .userInfoGridTop {
+            height: 50%;
+        }
+        .userInfoGridBottom {
+            height: 50%;
+        }
+    }
 }
 
 // ダッシュボードブロック
-.dashboard {
-    height: 100%;
-    .dashboardGridTop {
-        height: 35%;
-        .dashboardTop {
-            height: 100%;
+.userDashboardContainer {
+    height: calc(100vh - 70px);
+    .dashboard {
+        height: 100%;
+        .dashboardGridTop {
+            height: 35%;
+            .dashboardTop {
+                height: 100%;
+            }
         }
-    }
-    .dashboardGridBottom {
-        height: 65%;
-        .dashboardBottom {
-            height: 100%;
+        .dashboardGridBottom {
+            height: 65%;
+            .dashboardBottom {
+                height: 100%;
+            }
         }
     }
 }
