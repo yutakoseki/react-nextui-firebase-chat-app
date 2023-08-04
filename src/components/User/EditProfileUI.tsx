@@ -2,10 +2,8 @@ import React from "react";
 import Header from "../Header/Header";
 import { Card, Grid } from "@nextui-org/react";
 import scss from "./edit.module.scss";
-import UserMiddleUI from "./UserInfo/UserMiddleUI";
 import UserBottomUI from "./UserInfo/UserBottomUI";
 import DashboardTopUI from "./Dashboard/DashboardTopUI";
-import DashboardMiddleUI from "./Dashboard/DashboardMiddleUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
 import EditInfoTop from "./EditInfo/EditInfoTopUI";
 
@@ -22,16 +20,13 @@ const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditP
     return (
         <>
             <Header />
-            <Grid.Container gap={1} className={scss.container}>
-                <Grid xs={12} md={3}>
+            <Grid.Container className={scss.wrapper}>
+                <Grid xs={12} md={3} className={scss.userInfoWrapper}>
                     <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
                             <Grid.Container gap={1} className={scss.userInfoContainer}>
                                 <Grid xs={12} className={scss.userInfoGridTop}>
                                     <EditInfoTop onClickButton={onClickButton} onUseridChange={onUseridChange} onUserNameChange={onUserNameChange} />
-                                </Grid>
-                                <Grid xs={12} className={scss.userInfoGridMiddle}>
-                                    <UserMiddleUI />
                                 </Grid>
                                 <Grid xs={12} className={scss.userInfoGridBottom}>
                                     <UserBottomUI />
@@ -41,15 +36,12 @@ const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditP
                     </Card>
                 </Grid>
                 {/* スマホ版では非表示 */}
-                <Grid xs={0} md={9}>
+                <Grid xs={12} md={9} className={scss.dashboardWrapper}>
                     <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                            <Grid.Container gap={1} className={scss.dashboard}>
+                            <Grid.Container gap={1} className={scss.dashboardContainer}>
                                 <Grid xs={12} className={scss.dashboardGridTop}>
                                     <DashboardTopUI />
-                                </Grid>
-                                <Grid xs={12} className={scss.dashboardGridMiddle}>
-                                    <DashboardMiddleUI />
                                 </Grid>
                                 <Grid xs={12} className={scss.dashboardGridBottom}>
                                     <DashboardBottomUI />

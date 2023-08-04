@@ -1,5 +1,5 @@
 // user.scss
-.container {
+.wrapper {
     height: calc(100vh - 70px);
     overflow: "hidden";
 }
@@ -18,7 +18,7 @@
 }
 
 // ユーザー情報ブロック
-.userInfoContainer {
+.userInfoWrapper {
     height: calc(100vh - 70px);
     .userInfoContainer {
         height: 100%;
@@ -32,9 +32,9 @@
 }
 
 // ダッシュボードブロック
-.userDashboardContainer {
+.userDashboardWrapper {
     height: calc(100vh - 70px);
-    .dashboard {
+    .dashboardContainer {
         height: 100%;
         .dashboardGridTop {
             height: 35%;

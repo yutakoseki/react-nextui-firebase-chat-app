@@ -1,6 +1,6 @@
 // user.scss
-.container {
-    height: calc(100vh - 100px);
+.wrapper {
+    height: calc(100vh - 70px);
     overflow: "hidden";
 }
 
@@ -17,43 +17,40 @@
     /* その他のスタイル */
 }
 
-.cardBody{
+.cardBody {
     align-items: center;
 }
 
 // ユーザー情報ブロック
-.userInfoContainer {
-  height: 100%;
-  .userInfoGridTop {
-    height: 50%;
-  }
-  .userInfoGridMiddle {
-    height: 15%;
-  }
-  .userInfoGridBottom {
-    height: 35%;
-  }
+.userInfoWrapper {
+    height: 100%;
+    .userInfoContainer {
+        height: 100%;
+        .userInfoGridTop {
+            height: 50%;
+        }
+        .userInfoGridBottom {
+            height: 50%;
+        }
+    }
 }
 
 // ダッシュボードブロック
-.dashboard {
+.dashboardWrapper {
     height: 100%;
-    .dashboardGridTop {
-        height: 15%;
-        .dashboardTop {
-            height: 100%;
+    .dashboardContainer {
+        height: 100%;
+        .dashboardGridTop {
+            height: 35%;
+            .dashboardTop {
+                height: 100%;
+            }
         }
-    }
-    .dashboardGridMiddle {
-        height: 25%;
-        .dashboardMiddle {
-            height: 100%;
-        }
-    }
-    .dashboardGridBottom {
-        height: 60%;
-        .dashboardBottom {
-            height: 100%;
+        .dashboardGridBottom {
+            height: 65%;
+            .dashboardBottom {
+                height: 100%;
+            }
         }
     }
 }

@@ -18,8 +18,8 @@ const UserUI = () => {
     return (
         <>
             <Header />
-            <Grid.Container className={user.container}>
-                <Grid xs={12} md={3} className={user.userInfoContainer}>
+            <Grid.Container className={user.wrapper}>
+                <Grid xs={12} md={3} className={user.userInfoWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
                             <Grid.Container gap={1} className={user.userInfoContainer}>
@@ -34,10 +34,10 @@ const UserUI = () => {
                     </Card>
                 </Grid>
                 {/* スマホ版では非表示 */}
-                <Grid xs={12} md={9} className={user.userDashboardContainer}>
+                <Grid xs={12} md={9} className={user.userDashboardWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                        <Grid.Container gap={1} className={user.dashboard}>
+                        <Grid.Container gap={1} className={user.dashboardContainer}>
                                 <Grid xs={12} className={user.dashboardGridTop}>
                                     <DashboardTopUI />
                                 </Grid>
