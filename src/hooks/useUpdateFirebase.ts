@@ -11,6 +11,7 @@ const useUpdateFirebase = () => {
     // ドキュメントを取得
     const update = async (collectionName: string, documentid: string, saveData: User) => {
         try {
+            console.log(saveData);
             updateDoc(doc(db, collectionName, documentid), { ...saveData });
             return true;
         } catch (error) {

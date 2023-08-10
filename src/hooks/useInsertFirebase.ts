@@ -3,7 +3,9 @@ import { db } from "../firebase";
 
 interface User {
     userid: string;
+    username: string;
     password: string;
+    photoURL: string;
 }
 
 const useInsertFirebase = () => {

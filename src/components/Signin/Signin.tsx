@@ -9,13 +9,16 @@ import useInsertFirebase from '../../hooks/useInsertFirebase';
 
 interface User {
     userid: string;
+    username: string;
     password: string;
 }
 
 const Signin = () => {
     const [saveData, setSaveData] = useState({
-        userid: "",       // ユーザーID
-        password: "",     // ユーザー名
+        userid: "",
+        username: "",
+        password: "",
+        photoURL: "https://github.com/yutakoseki/react-nextui-firebase-chat-app/blob/master/src/image/usericon/kkrn_icon_user_2.png?raw=true",
     });
     const [userid, setUserid] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +30,7 @@ const Signin = () => {
     // ユーザー名を取得
     const onUserIdChange = (value: string) => {
         console.log(value);
-        setSaveData({...saveData, userid: value})
+        setSaveData({...saveData, userid: value, username: value})
     };
 
     // パスワードを取得

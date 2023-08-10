@@ -34,6 +34,7 @@ const EditProfile = () => {
     // 登録
     const onClickButton = async (value: boolean) => {
         if (value) {
+            console.log(saveData);
             let result = await update("users", "test_taro", saveData);
             if(result){
                 dispatch(changeUserid(saveData.userid));
