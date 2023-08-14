@@ -1,15 +1,18 @@
 import React from "react";
 import { Button, Card, Grid, Input, Row, Text } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 
 interface LoginProps {
     userid: string;
     password: string;
+    errmsg: string;
     onUserIdChange: (value: string) => void;
     onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton }: LoginProps) => {
+const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: LoginProps) => {
+    let { t } = useTranslation();
     const handleIdChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const value = event.target.value;
         onUserIdChange(value);
@@ -56,6 +59,7 @@ const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton }: LoginProps
                         <Row justify="center" align="center" css={{ height: "50px" }}>
                             <Input.Password bordered labelPlaceholder="パスワード" color="secondary" width="70%" onChange={handlePasswordChange} />
                         </Row>
+                            {errmsg ? (<Text color="error">{t("error.inCorrectIdPassword")}</Text>) : ("")}
                         <Row justify="center" align="center" css={{ height: "300px" }}>
                             <Button shadow color="gradient" css={{ width: "70%" }} onClick={handleClick}>
                                 login

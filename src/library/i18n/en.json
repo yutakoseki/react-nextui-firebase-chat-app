@@ -3,6 +3,7 @@
        "My Settings": "My Settings"
      },
     "error": {
-      "LoginBrank": "Please enter your username and password."
+      "LoginBrank": "Please enter your username and password.",
+      "inCorrectIdPassword": "The username or password is incorrect."
    }
 }

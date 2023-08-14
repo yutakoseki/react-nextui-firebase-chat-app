@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import EditProfileUI from './EditProfileUI';
 import useUpdateFirebase from '../../hooks/useUpdateFirebase';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,8 +8,8 @@ import { RootState } from '../../app/store';
 const EditProfile = () => {
     const userInfo = useSelector((state: RootState) => state.user);
     const [saveData, setSaveData] = useState({
-        userid: userInfo.userid,       // ユーザーID
-        username: userInfo.username,     // ユーザー名
+        userid: userInfo.userid,
+        username: userInfo.username,
     });
     const { update } = useUpdateFirebase();
     const dispatch = useDispatch();
@@ -34,8 +34,7 @@ const EditProfile = () => {
     // 登録
     const onClickButton = async (value: boolean) => {
         if (value) {
-            console.log(saveData);
-            let result = await update("users", "test_taro", saveData);
+            let result = await update("users", saveData.userid, saveData);
             if(result){
                 dispatch(changeUserid(saveData.userid));
                 dispatch(changeUsername(saveData.username));
