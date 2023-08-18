@@ -33,7 +33,7 @@ const UserUI = () => {
                         </Card.Body>
                     </Card>
                 </Grid>
-                {/* スマホ版では非表示 */}
+
                 <Grid xs={12} md={9} className={user.userDashboardWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>

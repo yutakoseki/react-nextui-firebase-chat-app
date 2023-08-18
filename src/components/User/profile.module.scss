@@ -1,7 +1,6 @@
 // user.scss
 .container {
     height: calc(100vh - 100px);
-    overflow: "hidden";
 }
 
 .row {
@@ -31,25 +30,3 @@
   }
 }
 
-// ダッシュボードブロック
-.dashboard {
-    height: 100%;
-    .dashboardGridTop {
-        height: 15%;
-        .dashboardTop {
-            height: 100%;
-        }
-    }
-    .dashboardGridMiddle {
-        height: 25%;
-        .dashboardMiddle {
-            height: 100%;
-        }
-    }
-    .dashboardGridBottom {
-        height: 60%;
-        .dashboardBottom {
-            height: 100%;
-        }
-    }
-}

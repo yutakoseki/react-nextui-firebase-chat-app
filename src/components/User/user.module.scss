@@ -1,7 +1,6 @@
 // user.scss
 .wrapper {
-    height: calc(100vh - 70px);
-    overflow: "hidden";
+    height: calc(100vh - 80px);
 }
 
 .row {
@@ -17,23 +16,9 @@
     /* その他のスタイル */
 }
 
-// ユーザー情報ブロック
-.userInfoWrapper {
-    height: calc(100vh - 70px);
-    .userInfoContainer {
-        height: 100%;
-        .userInfoGridTop {
-            height: 50%;
-        }
-        .userInfoGridBottom {
-            height: 50%;
-        }
-    }
-}
-
 // ダッシュボードブロック
 .userDashboardWrapper {
-    height: calc(100vh - 70px);
+    height: 100%;
     .dashboardContainer {
         height: 100%;
         .dashboardGridTop {
@@ -46,6 +31,47 @@
             height: 65%;
             .dashboardBottom {
                 height: 100%;
+            }
+        }
+    }
+}
+
+//  スマホ
+@media (max-width: 640px) {
+    .wrapper {
+        height: 100vh;
+
+        // ユーザー情報ブロック
+        .userInfoWrapper {
+            height: calc(100vh - 80px);
+            .userInfoContainer {
+                height: 100%;
+                .userInfoGridTop {
+                    height: 50%;
+                }
+                .userInfoGridBottom {
+                    height: 50%;
+                }
+            }
+        }
+
+        // ダッシュボードブロック
+        .userDashboardWrapper {
+            height: 100%;
+            .dashboardContainer {
+                height: 100%;
+                .dashboardGridTop {
+                    height: 100%;
+                    .dashboardTop {
+                        height: 100%;
+                    }
+                }
+                .dashboardGridBottom {
+                    height: 100%;
+                    .dashboardBottom {
+                        height: 100%;
+                    }
+                }
             }
         }
     }
