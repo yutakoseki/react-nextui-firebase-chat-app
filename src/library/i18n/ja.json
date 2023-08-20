@@ -1,6 +1,7 @@
 {
     "global": {
         "OK": "OK",
+        "Save": "登録",
         "Cancel": "キャンセル"
     },
     "header": {

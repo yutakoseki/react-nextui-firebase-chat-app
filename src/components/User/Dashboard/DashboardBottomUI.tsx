@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Grid, Table, Text } from "@nextui-org/react";
-import user from "../user.module.scss";
+import dashboardbottom from "./dashboardbottom.module.scss";
 
 const DashboardBottomUI = () => {
     return (
         <>
-            <Card className={user.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
+            <Card className={dashboardbottom.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
                 <Card.Body>
                     <Text>Dashboard Bottom</Text>
                     <Table

@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, Card, Image, Input, Text } from "@nextui-org/react";
-import scss from "../../User/edit.module.scss";
+import { Button, Card, Grid, Image, Input, Text } from "@nextui-org/react";
+import editTop from "./editTop.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
 
 interface EditProfileProps {
     // userName: string;
@@ -16,7 +15,7 @@ interface EditProfileProps {
     onClickButton: (value: boolean) => void;
 }
 
-const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfileProps) => {
+const EditInfoTop = ({ onUseridChange, onUserNameChange, onClickButton }: EditProfileProps) => {
     const userid = useSelector((state: RootState) => state.user.userid);
     const username = useSelector((state: RootState) => state.user.username);
     const photoURL = useSelector((state: RootState) => state.user.photoURL);
@@ -27,13 +26,13 @@ const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfi
     const handleUseridChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const value = event.target.value;
         onUseridChange(value);
-    }
+    };
 
     // ユーザー名
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const value = event.target.value;
         onUserNameChange(value);
-    }
+    };
 
     // データをEditProfileへ
     const handleClickSaveEdit = (): void => {
@@ -41,35 +40,30 @@ const EditInfoTop = ({onUseridChange, onUserNameChange, onClickButton}:EditProfi
         navigate("/user");
     };
 
+    // データをEditProfileへ
+    const handleClickCancelEdit = (): void => {
+        navigate("/user");
+    };
+
     return (
         <>
-            <Card className={scss.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
-                <Card.Body style={{alignItems: "center"}}>
-                    <Image showSkeleton width={150} height={150} maxDelay={10000} src={photoURL}
-                    alt="Default Image" objectFit="cover" style={{ borderRadius: "50%", overflow: "hidden" }} />
-                    <Input className={scss.input}
-                        clearable
-                        underlined
-                        labelPlaceholder={t("profile.Userid")}
-                        initialValue={userid}
-                        width="80%"
-                        style={{ textAlign: "center", fontSize: "18px" }}
-                        css={{marginTop: "50px", marginBottom: "20px"}}
-                        onChange={handleUseridChange}
-                    />
-                    <Input className={scss.input}
-                        clearable
-                        underlined
-                        labelPlaceholder={t("profile.Name")}
-                        initialValue={username}
-                        width="80%"
-                        style={{ textAlign: "center", fontSize: "18px" }}
-                        css={{marginTop: "50px", marginBottom: "20px"}}
-                        onChange={handleNameChange}
-                    />
-                    <Button css={{ textAlign: "center", marginTop: "20px" }} color="primary" auto onClick={handleClickSaveEdit}>
-                        {t("profile.Save Profile")}
-                    </Button>
+            <Card className={editTop.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
+                <Card.Body style={{ alignItems: "center" }}>
+                    <Image className={editTop.image} showSkeleton width={100} height={100} maxDelay={10000} src={photoURL} alt="Default Image" objectFit="cover" />
+                    <Input className={editTop.userid} clearable underlined labelPlaceholder={t("profile.Userid")} initialValue={userid} width="80%" size="xs" style={{ textAlign: "center", fontSize: "16px" }} onChange={handleUseridChange} />
+                    <Input className={editTop.input} clearable underlined labelPlaceholder={t("profile.Name")} initialValue={username} width="80%" size="xs" style={{ textAlign: "center", fontSize: "16px" }} onChange={handleNameChange} />
+                    <Grid.Container>
+                        <Grid md={6}>
+                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginRight: "5px" }} color="secondary" auto onClick={handleClickSaveEdit}>
+                                {t("global.Cancel")}
+                            </Button>
+                        </Grid>
+                        <Grid md={6}>
+                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginLeft: "5px" }} color="primary" auto onClick={handleClickCancelEdit}>
+                                {t("global.Save")}
+                            </Button>
+                        </Grid>
+                    </Grid.Container>
                 </Card.Body>
             </Card>
         </>

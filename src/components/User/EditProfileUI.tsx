@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Header/Header";
 import { Card, Grid } from "@nextui-org/react";
-import scss from "./edit.module.scss";
+import edit from "./edit.module.scss";
 import UserBottomUI from "./UserInfo/UserBottomUI";
 import DashboardTopUI from "./Dashboard/DashboardTopUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
@@ -20,15 +20,15 @@ const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditP
     return (
         <>
             <Header />
-            <Grid.Container className={scss.wrapper}>
-                <Grid xs={12} md={3} className={scss.userInfoWrapper}>
-                    <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
+            <Grid.Container className={edit.wrapper}>
+                <Grid xs={12} md={3} className={edit.userInfoWrapper}>
+                    <Card className={edit.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                            <Grid.Container gap={1} className={scss.userInfoContainer}>
-                                <Grid xs={12} className={scss.userInfoGridTop}>
+                            <Grid.Container gap={1} className={edit.userInfoContainer}>
+                                <Grid xs={12} className={edit.userInfoGridTop}>
                                     <EditInfoTop onClickButton={onClickButton} onUseridChange={onUseridChange} onUserNameChange={onUserNameChange} />
                                 </Grid>
-                                <Grid xs={12} className={scss.userInfoGridBottom}>
+                                <Grid xs={12} className={edit.userInfoGridBottom}>
                                     <UserBottomUI />
                                 </Grid>
                             </Grid.Container>
@@ -36,14 +36,14 @@ const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditP
                     </Card>
                 </Grid>
                 {/* スマホ版では非表示 */}
-                <Grid xs={12} md={9} className={scss.dashboardWrapper}>
-                    <Card className={scss.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
+                <Grid xs={12} md={9} className={edit.dashboardWrapper}>
+                    <Card className={edit.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                            <Grid.Container gap={1} className={scss.dashboardContainer}>
-                                <Grid xs={12} className={scss.dashboardGridTop}>
+                            <Grid.Container gap={1} className={edit.dashboardContainer}>
+                                <Grid xs={12} className={edit.dashboardGridTop}>
                                     <DashboardTopUI />
                                 </Grid>
-                                <Grid xs={12} className={scss.dashboardGridBottom}>
+                                <Grid xs={12} className={edit.dashboardGridBottom}>
                                     <DashboardBottomUI />
                                 </Grid>
                             </Grid.Container>

@@ -37,7 +37,7 @@ const UserUI = () => {
                 <Grid xs={12} md={9} className={user.userDashboardWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                        <Grid.Container gap={1} className={user.dashboardContainer}>
+                            <Grid.Container gap={1} className={user.dashboardContainer}>
                                 <Grid xs={12} className={user.dashboardGridTop}>
                                     <DashboardTopUI />
                                 </Grid>

@@ -1,11 +1,16 @@
 // user.scss
 .wrapper {
-    height: calc(100vh - 70px);
-    overflow: "hidden";
-}
-
-.GridContainer{
     height: 100%;
+    .dashboardTopLeft {
+        height: 100%;
+    }
+
+    .dashboardTopRight {
+        height: 100%;
+        .snsContainer{
+            height: 100%;
+        }
+    }
 }
 
 .row {
@@ -26,8 +31,36 @@
     align-items: center;
 }
 
-.dashboardTopRight{
-    .link{
+.dashboardTopRight {
+    .link {
         color: dodgerblue;
+    }
+}
+
+// Laptop
+@media (max-width: 1440px) {
+    .wrapper {
+        height: 100%;
+        .dashboardTopLeft {
+            height: 100%;
+        }
+
+        .dashboardTopRight {
+            height: 100%;
+        }
+    }
+}
+
+//  スマホ
+@media (max-width: 640px) {
+    .wrapper {
+        height: 100%;
+        .dashboardTopLeft {
+            height: 100%;
+        }
+
+        .dashboardTopRight {
+            height: 100%;
+        }
     }
 }

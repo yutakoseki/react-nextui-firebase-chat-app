@@ -1,4 +1,9 @@
 {
+   "global": {
+      "OK": "OK",
+      "Save": "Save",
+      "Cancel": "Cancel"
+  },
     "header": {
        "My Settings": "My Settings"
      },
