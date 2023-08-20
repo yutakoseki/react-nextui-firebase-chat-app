@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import LoginUI from "./LoginUI";
-import { query, collection, where, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeUsername, changePassword, changeUserid } from "../../features/userSlice";
-
-interface User {
-    userid: string;
-    username: string;
-    password: string;
-}
+import { changeUsername, changePassword, changeUserid, changePhotoURL } from "../../features/userSlice";
+import { useLoginUserFirebase } from '../../hooks/useSelectFirebase'
 
 const Login = () => {
-    const [user, setUser] = useState<User[]>([]);
     const [userid, setUserid] = useState("");
     const [password, setPassword] = useState("");
+    const [errmsg, setErrorMsg] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log(user);
+    const { selectLoginUser } = useLoginUserFirebase();
 
     // ユーザー名を取得
     const onUserIdChange = (value: string) => {
@@ -33,35 +26,23 @@ const Login = () => {
     // ボタンクリックで取得
     const onClickButton = async (value: boolean) => {
         if (value) {
-            // コレクションを指定
-            const usersRef = collection(db, "users");
-            // フィールドの条件を指定
-            const q = query(usersRef, where("userid", "==", userid), where("password", "==", password));
-            // 取得したものをスナップショットに格納
-            const querySnapshot = await getDocs(q);
-            // 展開したdocデータを格納する配列
-            const loginUser:User[] = [];
-            // 取得したものを表示
-            querySnapshot.forEach((doc) => {
-                loginUser.push({
-                    userid: doc.data().userid,
-                    username: doc.data().username,
-                    password: doc.data().password,
-                })
-                dispatch(changeUserid(loginUser[0].userid));
-                dispatch(changeUsername(loginUser[0].username));
-                dispatch(changePassword(loginUser[0].password));
-                setUser(loginUser);
+            let result = await selectLoginUser("users", "userid", userid, "password", password);
+            if(result){
+                dispatch(changeUserid(result[0].userid));
+                dispatch(changeUsername(result[0].username));
+                dispatch(changePassword(result[0].password));
+                dispatch(changePhotoURL(result[0].photoURL));
                 navigate("/user");
-                console.log("Document data:", doc.data());
-            });
+            }else{
+                setErrorMsg("login: The username or password is incorrect.");
+            }
         }
     };
 
     return (
         <>
             {/* ログインUI */}
-            <LoginUI userid={userid} onUserIdChange={onUserIdChange} password={password} onPasswordChange={onPasswordChange} onClickButton={onClickButton} />
+            <LoginUI userid={userid} onUserIdChange={onUserIdChange} password={password} onPasswordChange={onPasswordChange} onClickButton={onClickButton} errmsg={errmsg} />
         </>
     );
 };

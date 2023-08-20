@@ -3,10 +3,13 @@ import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changePassword, changePhotoURL, changeUserid, changeUsername } from "../../features/userSlice.tsx";
 
 export default function App() {
     const { t } = useTranslation();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const collapseItems = ["Profile", "Dashboard", "Activity", "Analytics", "System", "Deployments", "My Settings", "Team Settings", "Help & Feedback", "Log Out"];
 
     return (
@@ -54,6 +57,12 @@ export default function App() {
                                 console.log({ actionKey });
                                 if (actionKey === "settings") {
                                     navigate("/user");
+                                }else if(actionKey === "logout"){
+                                    dispatch(changeUserid(""));
+                                    dispatch(changeUsername(""));
+                                    dispatch(changePassword(""));
+                                    dispatch(changePhotoURL(""));
+                                    navigate("/login");
                                 }
                             }}
                         >
@@ -66,7 +75,7 @@ export default function App() {
                                 </Text>
                             </Dropdown.Item>
                             <Dropdown.Item key="settings" withDivider>
-                                {t("header.My_Settings")}
+                                {t("header.My Settings")}
                             </Dropdown.Item>
                             <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
                             <Dropdown.Item key="analytics" withDivider>
@@ -78,7 +87,7 @@ export default function App() {
                                 Help & Feedback
                             </Dropdown.Item>
                             <Dropdown.Item key="logout" withDivider color="error">
-                                Log Out
+                                {t("header.Log Out")}
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

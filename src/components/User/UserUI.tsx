@@ -18,16 +18,13 @@ const UserUI = () => {
     return (
         <>
             <Header />
-            <Grid.Container gap={1} className={user.container}>
-                <Grid xs={12} md={3}>
+            <Grid.Container className={user.wrapper}>
+                <Grid xs={12} md={3} className={user.userInfoWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
                             <Grid.Container gap={1} className={user.userInfoContainer}>
                                 <Grid xs={12} className={user.userInfoGridTop}>
                                     <UserTopUI />
-                                </Grid>
-                                <Grid xs={12} className={user.userInfoGridMiddle}>
-                                    <UserMiddleUI />
                                 </Grid>
                                 <Grid xs={12} className={user.userInfoGridBottom}>
                                     <UserBottomUI />
@@ -36,16 +33,13 @@ const UserUI = () => {
                         </Card.Body>
                     </Card>
                 </Grid>
-                {/* スマホ版では非表示 */}
-                <Grid xs={0} md={9}>
+
+                <Grid xs={12} md={9} className={user.userDashboardWrapper}>
                     <Card className={user.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
-                        <Grid.Container gap={1} className={user.dashboard}>
+                        <Grid.Container gap={1} className={user.dashboardContainer}>
                                 <Grid xs={12} className={user.dashboardGridTop}>
                                     <DashboardTopUI />
-                                </Grid>
-                                <Grid xs={12} className={user.dashboardGridMiddle}>
-                                    <DashboardMiddleUI />
                                 </Grid>
                                 <Grid xs={12} className={user.dashboardGridBottom}>
                                     <DashboardBottomUI />

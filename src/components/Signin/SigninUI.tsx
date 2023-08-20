@@ -11,8 +11,8 @@ interface LoginProps {
     onClickButton: (value: boolean) => void;
 }
 
-const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: LoginProps) => {
-    let { t } = useTranslation();
+const SigninUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: LoginProps) => {
+    const { t } = useTranslation();
     const handleIdChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const value = event.target.value;
         onUserIdChange(value);
@@ -24,15 +24,15 @@ const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: Lo
     };
 
     const handleClick = (): void => {
-      onClickButton(true);
-    }
+        onClickButton(true);
+    };
 
     return (
         <>
             <Grid.Container
                 css={{
                     height: "100vh",
-                    backgroundImage: "",
+                    backgroundImage: "url()",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     display: "flex",
@@ -50,19 +50,24 @@ const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: Lo
                     <Card.Body>
                         <Row justify="center" align="center" css={{ height: "100px" }}>
                             <Text h1 size={60} color="white" css={{ m: 0, letterSpacing: "0.1em", transform: "skew(-15deg)" }}>
-                                Login
+                                SIGNUP
                             </Text>
                         </Row>
                         <Row justify="center" align="center" css={{ height: "150px" }}>
-                            <Input bordered labelPlaceholder="ユーザーID" color="secondary" width="70%" onChange={handleIdChange} />
+                            <Input bordered labelPlaceholder={t("user.userid")} color="secondary" width="70%" onChange={handleIdChange} />
                         </Row>
                         <Row justify="center" align="center" css={{ height: "50px" }}>
-                            <Input.Password bordered labelPlaceholder="パスワード" color="secondary" width="70%" onChange={handlePasswordChange} />
+                            <Input.Password bordered labelPlaceholder={t("user.password")} color="secondary" width="70%" onChange={handlePasswordChange} />
                         </Row>
-                            {errmsg ? (<Text color="error">{t("error.inCorrectIdPassword")}</Text>) : ("")}
+                        {errmsg ? (
+                            <Text color="error" css={{ textAlign: "center", marginTop: "20px" }}>{t("error.LoginBrank")}</Text>
+                        ) : (
+                            ""
+                        )}
                         <Row justify="center" align="center" css={{ height: "300px" }}>
+                            l
                             <Button shadow color="gradient" css={{ width: "70%" }} onClick={handleClick}>
-                                login
+                                signup
                             </Button>
                         </Row>
                     </Card.Body>
@@ -72,4 +77,4 @@ const LoginUI = ({ onUserIdChange, onPasswordChange, onClickButton, errmsg }: Lo
     );
 };
 
-export default LoginUI;
+export default SigninUI;

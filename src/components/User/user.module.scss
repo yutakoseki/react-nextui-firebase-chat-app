@@ -1,7 +1,6 @@
 // user.scss
-.container {
-    height: calc(100vh - 100px);
-    overflow: "hidden";
+.wrapper {
+    height: calc(100vh - 80px);
 }
 
 .row {
@@ -17,39 +16,63 @@
     /* その他のスタイル */
 }
 
-// ユーザー情報ブロック
-.userInfoContainer {
-  height: 100%;
-  .userInfoGridTop {
-    height: 50%;
-  }
-  .userInfoGridMiddle {
-    height: 15%;
-  }
-  .userInfoGridBottom {
-    height: 35%;
-  }
+// ダッシュボードブロック
+.userDashboardWrapper {
+    height: 100%;
+    .dashboardContainer {
+        height: 100%;
+        .dashboardGridTop {
+            height: 35%;
+            .dashboardTop {
+                height: 100%;
+            }
+        }
+        .dashboardGridBottom {
+            height: 65%;
+            .dashboardBottom {
+                height: 100%;
+            }
+        }
+    }
 }
 
-// ダッシュボードブロック
-.dashboard {
-    height: 100%;
-    .dashboardGridTop {
-        height: 15%;
-        .dashboardTop {
-            height: 100%;
+//  スマホ
+@media (max-width: 640px) {
+    .wrapper {
+        height: 100vh;
+
+        // ユーザー情報ブロック
+        .userInfoWrapper {
+            height: calc(100vh - 80px);
+            .userInfoContainer {
+                height: 100%;
+                .userInfoGridTop {
+                    height: 50%;
+                }
+                .userInfoGridBottom {
+                    height: 50%;
+                }
+            }
         }
-    }
-    .dashboardGridMiddle {
-        height: 25%;
-        .dashboardMiddle {
+
+        // ダッシュボードブロック
+        .userDashboardWrapper {
             height: 100%;
-        }
-    }
-    .dashboardGridBottom {
-        height: 60%;
-        .dashboardBottom {
-            height: 100%;
+            .dashboardContainer {
+                height: 100%;
+                .dashboardGridTop {
+                    height: 100%;
+                    .dashboardTop {
+                        height: 100%;
+                    }
+                }
+                .dashboardGridBottom {
+                    height: 100%;
+                    .dashboardBottom {
+                        height: 100%;
+                    }
+                }
+            }
         }
     }
 }
