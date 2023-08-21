@@ -54,12 +54,12 @@ const EditInfoTop = ({ onUseridChange, onUserNameChange, onClickButton }: EditPr
                     <Input className={editTop.input} clearable underlined labelPlaceholder={t("profile.Name")} initialValue={username} width="80%" size="xs" style={{ textAlign: "center", fontSize: "16px" }} onChange={handleNameChange} />
                     <Grid.Container>
                         <Grid md={6}>
-                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginRight: "5px" }} color="secondary" auto onClick={handleClickSaveEdit}>
+                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginRight: "5px" }} color="secondary" auto onClick={handleClickCancelEdit}>
                                 {t("global.Cancel")}
                             </Button>
                         </Grid>
                         <Grid md={6}>
-                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginLeft: "5px" }} color="primary" auto onClick={handleClickCancelEdit}>
+                            <Button css={{ textAlign: "center", marginTop: "20px", width: "100%", marginLeft: "5px" }} color="primary" auto onClick={handleClickSaveEdit}>
                                 {t("global.Save")}
                             </Button>
                         </Grid>

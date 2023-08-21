@@ -6,17 +6,19 @@ import UserBottomUI from "./UserInfo/UserBottomUI";
 import DashboardTopUI from "./Dashboard/DashboardTopUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
 import EditInfoTop from "./EditInfo/EditInfoTopUI";
+import EditBottomUI from "./EditInfo/EditBottomUI";
 
 interface EditProfileProps {
     // userName: string;
     // password: string;
     onUseridChange: (value: string) => void;
     onUserNameChange: (value: string) => void;
+    onUserAgeChange: (value: number) => void;
     // onPasswordChange: (value: string) => void;
     onClickButton: (value: boolean) => void;
 }
 
-const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditProfileProps) => {
+const EditProfileUI = ({ onUseridChange, onUserNameChange, onUserAgeChange, onClickButton }: EditProfileProps) => {
     return (
         <>
             <Header />
@@ -29,13 +31,12 @@ const EditProfileUI = ({onUseridChange, onUserNameChange, onClickButton }: EditP
                                     <EditInfoTop onClickButton={onClickButton} onUseridChange={onUseridChange} onUserNameChange={onUserNameChange} />
                                 </Grid>
                                 <Grid xs={12} className={edit.userInfoGridBottom}>
-                                    <UserBottomUI />
+                                    <EditBottomUI onUserAgeChange={onUserAgeChange} />
                                 </Grid>
                             </Grid.Container>
                         </Card.Body>
                     </Card>
                 </Grid>
-                {/* スマホ版では非表示 */}
                 <Grid xs={12} md={9} className={edit.dashboardWrapper}>
                     <Card className={edit.card} css={{ $$cardColor: "$colors$baseBlackColor" }}>
                         <Card.Body>
