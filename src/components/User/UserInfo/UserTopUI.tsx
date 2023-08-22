@@ -6,7 +6,23 @@ import { RootState } from "../../../app/store";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-const UserTopUI = () => {
+interface UserProps {
+    userData: {
+        userid: string;
+        username: string;
+        password: string;
+        photoURL: string;
+        language: string;
+        age: number;
+        gender: string;
+        hometown: string;
+        address: string;
+        influenced_artist: string;
+        genre: string;
+    };
+}
+
+const UserTopUI = ({ userData }: UserProps) => {
     const user = useSelector((state: RootState) => state.user);
     const { t } = useTranslation();
     const navigate = useNavigate();

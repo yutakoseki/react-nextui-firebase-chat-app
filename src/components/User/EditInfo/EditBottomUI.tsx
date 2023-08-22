@@ -15,8 +15,6 @@ const EditBottomUI = ({ onUserAgeChange }: EditProfileProps) => {
         onUserAgeChange(numericValue);
     };
     return (
-        <>
-            {" "}
             <>
                 <Card className={user.card} css={{ $$cardColor: "$colors$baseGrayColor" }}>
                     <Card.Body>
@@ -70,7 +68,6 @@ const EditBottomUI = ({ onUserAgeChange }: EditProfileProps) => {
                     </Card.Body>
                 </Card>
             </>
-        </>
     );
 };
 

@@ -60,4 +60,43 @@ const useLoginUserFirebase = () => {
         };
 }
 
-export {useSelectFirebase, useLoginUserFirebase};
+interface UserData {
+    userid: string;
+    username: string;
+    password: string;
+    photoURL: string;
+    language: string;
+    age:number;
+    gender:string;
+    hometown:string;
+    address:string;
+    influenced_artist:string;
+    genre:string;
+}
+
+// ユーザー全データ取得
+const useArtistDataFirebase = () => {
+    // ドキュメントを取得
+    const select = async (collectionName: string, userid: string, fieldValue: string) => {
+        // コレクションを指定
+        const usersRef = collection(db, collectionName);
+        // フィールドの条件を指定
+        const q = query(usersRef, where(userid, "==", fieldValue));
+        // 取得したものをスナップショットに格納
+        const querySnapshot = await getDocs(q);
+        // 展開したdocデータを格納する配列
+        const data:UserData[] = [];
+        // 取得したものを表示
+        querySnapshot.forEach((doc) => {
+            const userData = doc.data() as UserData;
+            data.push(userData);
+        });
+        return data;
+    };
+
+    return {
+        select,
+    };
+};
+
+export {useSelectFirebase, useLoginUserFirebase, useArtistDataFirebase};

@@ -11,7 +11,23 @@ import DashboardTopUI from "./Dashboard/DashboardTopUI";
 import DashboardMiddleUI from "./Dashboard/DashboardMiddleUI";
 import DashboardBottomUI from "./Dashboard/DashboardBottomUI";
 
-const UserUI = () => {
+interface UserProps{
+    userData:{
+        userid: string;
+        username: string;
+        password: string;
+        photoURL: string;
+        language: string;
+        age: number;
+        gender: string;
+        hometown: string;
+        address: string;
+        influenced_artist: string;
+        genre: string;
+    }
+}
+
+const UserUI = ({userData}:UserProps) => {
     const username = useSelector((state: RootState) => state.user.username);
     const password = useSelector((state: RootState) => state.user.password);
 
@@ -24,10 +40,10 @@ const UserUI = () => {
                         <Card.Body>
                             <Grid.Container gap={1} className={user.userInfoContainer}>
                                 <Grid xs={12} className={user.userInfoGridTop}>
-                                    <UserTopUI />
+                                    <UserTopUI userData={userData}/>
                                 </Grid>
                                 <Grid xs={12} className={user.userInfoGridBottom}>
-                                    <UserBottomUI />
+                                    <UserBottomUI userData={userData}/>
                                 </Grid>
                             </Grid.Container>
                         </Card.Body>

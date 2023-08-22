@@ -21,13 +21,13 @@ const Profile = () => {
                 <Card.Body>
                     <Grid.Container gap={1} className={profile.userInfoContainer}>
                         <Grid xs={12} className={profile.userInfoGridTop}>
-                            <UserTopUI />
+                            {/* <UserTopUI /> */}
                         </Grid>
                         <Grid xs={12} className={profile.userInfoGridMiddle}>
                             <UserMiddleUI />
                         </Grid>
                         <Grid xs={12} className={profile.userInfoGridBottom}>
-                            <UserBottomUI />
+                            {/* <UserBottomUI /> */}
                         </Grid>
                     </Grid.Container>
                 </Card.Body>

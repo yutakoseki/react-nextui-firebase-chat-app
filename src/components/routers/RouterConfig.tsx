@@ -4,7 +4,7 @@ import { NextUIProvider, createTheme } from "@nextui-org/react";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Counter from "../Counter/Counter";
-import User from "../User/UserUI";
+import User from "../User/User";
 import MessageList from "../Message/MessageList";
 import EditProfile from "../User/EditProfile";
 import Signin from "../Signin/Signin";
